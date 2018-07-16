@@ -32,7 +32,7 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
     super.initState();
 
     logoAnimationController = new AnimationController(
-        vsync: this, duration: new Duration(milliseconds: 400));
+        vsync: this, duration: new Duration(milliseconds: 300));
     logoAnimation = new CurvedAnimation(
         parent: logoAnimationController, curve: Curves.ease);
     logoAnimation.addListener(() => this.setState(() {}));
@@ -85,14 +85,14 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
                         _usernamecontroller.clear();
                         _passwordcontroller.clear();
                       },
-                      splashColor: Colors.purple,
+                      splashColor: Colors.blueAccent[50],
                       child: new Text('Cancel'),
                       shape: RoundedRectangleBorder(
                           borderRadius: new BorderRadius.circular(10.0)),
                     ),
                     new RaisedButton(
                       color: Colors.transparent,
-                      splashColor: Colors.purple,
+                      splashColor: Colors.blueAccent[50],
                       shape: RoundedRectangleBorder(
                         borderRadius: new BorderRadius.circular(10.0),
                       ),
