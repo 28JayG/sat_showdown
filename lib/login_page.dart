@@ -78,17 +78,18 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0)),
                     ),
-                    RaisedButton(
-                      color: Colors.transparent,
-                      splashColor: Colors.blueAccent[50],
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
+                    Builder(
+                      builder:(context) => RaisedButton(
+                        color: Colors.transparent,
+                        splashColor: Colors.blueAccent[50],
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        onPressed: () {
+                          Scaffold.of(context).showSnackBar(SnackBar(content: Text('Hi! ${_usernameController.text}')));
+                        },
+                        child: Text('Login'),
                       ),
-                      onPressed: () {
-                        print('To be continued...');
-//                        Scaffold.of(context).showSnackBar(SnackBar(content: Text('Hi! ${_usernameController.text}')));
-                      },
-                      child: Text('Login'),
                     )
                   ],
                 )
