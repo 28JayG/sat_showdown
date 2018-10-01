@@ -19,9 +19,9 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
   void initState() {
     super.initState();
 
-    logoAnimationController = new AnimationController(
-        vsync: this, duration: new Duration(milliseconds: 300));
-    logoAnimation = new CurvedAnimation(
+    logoAnimationController = AnimationController(
+        vsync: this, duration: Duration(milliseconds: 300));
+    logoAnimation = CurvedAnimation(
         parent: logoAnimationController, curve: Curves.ease);
     logoAnimation.addListener(() => this.setState(() {}));
     logoAnimationController.forward();
@@ -30,64 +30,65 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: new Stack(
+      body: Stack(
         fit: StackFit.expand,
         children: <Widget>[
-          new Image(
-            image: new AssetImage('assets/login_background.jpg'),
+          Image(
+            image: AssetImage('assets/login_background.jpg'),
             fit: BoxFit.cover,
           ),
-          new Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: new Column(
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                new FlutterLogo(size: logoAnimation.value * 100, colors: color),
-                new SizedBox(height: 10.0),
+                FlutterLogo(size: logoAnimation.value * 100, colors: color),
+                SizedBox(height: 10.0),
                 //Username
-                new TextField(
+                TextField(
                   controller: _usernameController,
-                  decoration: new InputDecoration(
+                  decoration: InputDecoration(
                     hintText: 'Username',
-                    border: new OutlineInputBorder(
-                      borderRadius: new BorderRadius.circular(20.0),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20.0),
                     ),
                   ),
                 ),
-                new SizedBox(height: 10.0),
+                SizedBox(height: 10.0),
                 //Password
-                new TextField(
+                TextField(
                   controller: _passwordController,
                   obscureText: true,
-                  decoration: new InputDecoration(
+                  decoration: InputDecoration(
                     hintText: 'Password',
-                    border: new OutlineInputBorder(
-                      borderRadius: new BorderRadius.circular(20.0),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20.0),
                     ),
                   ),
                 ),
-                new ButtonBar(
+                ButtonBar(
                   children: <Widget>[
-                    new FlatButton(
+                    FlatButton(
                       onPressed: () {
                         _usernameController.clear();
                         _passwordController.clear();
                       },
                       splashColor: Colors.blueAccent[50],
-                      child: new Text('Cancel'),
+                      child: Text('Cancel'),
                       shape: RoundedRectangleBorder(
-                          borderRadius: new BorderRadius.circular(10.0)),
+                          borderRadius: BorderRadius.circular(10.0)),
                     ),
-                    new RaisedButton(
+                    RaisedButton(
                       color: Colors.transparent,
                       splashColor: Colors.blueAccent[50],
                       shape: RoundedRectangleBorder(
-                        borderRadius: new BorderRadius.circular(10.0),
+                        borderRadius: BorderRadius.circular(10.0),
                       ),
                       onPressed: () {
                         print('To be continued...');
+//                        Scaffold.of(context).showSnackBar(SnackBar(content: Text('Hi! ${_usernameController.text}')));
                       },
-                      child: new Text('Login'),
+                      child: Text('Login'),
                     )
                   ],
                 )
