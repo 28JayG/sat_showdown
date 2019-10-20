@@ -8,8 +8,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home:  new LoginPage(),
-      title: 'MyApp',
-      debugShowCheckedModeBanner: true,
+      title: 'Sat_showdown_demo_App',
+      debugShowCheckedModeBanner: false,
     );
   }
 }
